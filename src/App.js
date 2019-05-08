@@ -10,20 +10,21 @@ import SendMessageForm from './components/SendMessageForm'
 import NewRoomForm from './components/NewRoomForm'
 import MessageList from './components/MessageList'
 
-import {  tokenUrl, instanceLocator} from '../config'
+import {  tokenUrl, instanceLocator} from './config'
 class App extends React.Component {
 
   // Connect to Chatkit
   componentDidMount() {
     const chatManager = new Chatkit.ChatManager({
       instanceLocator,
-      userID: 'coderunner',
+      userId: 'coderunner',
       tokenProvider: new Chatkit.TokenProvider({
-        url: 'tokenUrl'
+        url: tokenUrl
       })
     })
+
     chatManager.connect()
-      .then(currentUser => {
+    .then(currentUser => {
         currentUser.subscribeToRoom({
           roomID: 19408607,
           hooks: {
