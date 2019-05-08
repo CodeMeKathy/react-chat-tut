@@ -19,12 +19,12 @@ let dummyData = [
 export default class MessageList extends React.Component {
   render() {
     return (
-      <div>
+      <div className-='message-list'>
           {dummyData.map((message, index) => {
              return (
-               <div>
-                <div>{message.senderID}</div>
-                <div>{message.text}</div>
+               <div key={index} className='message'>
+                <div className='message-username'>{message.senderID}</div>
+                <div className='message-text'>{message.text}</div>
               </div>
              )
           })}
