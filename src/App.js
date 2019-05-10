@@ -3,14 +3,21 @@ import './App.css';
 import Chatkit from '@pusher/chatkit';
 
 
-import SearchBar from './components/SearchBar'
+import SearchBar from './components/SearchBar';
+import Header from "./components/Header";
 import NavBar from './components/NavBar'
-import RoomList from './components/RoomList'
-import SendMessageForm from './components/SendMessageForm'
-import NewRoomForm from './components/NewRoomForm'
-import MessageList from './components/MessageList'
+import RoomList from './components/RoomList';
+import SendMessageForm from './components/SendMessageForm';
+import NewRoomForm from './components/NewRoomForm';
+import MessageList from './components/MessageList';
 
-import {  tokenUrl, instanceLocator} from './config'
+import {  tokenUrl, instanceLocator} from './config';
+import ReactDOM from 'react-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faSearch)
+
 class App extends React.Component {
 
   // Connect to Chatkit
@@ -41,9 +48,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1>Welcome to CodeMeKathy</h1>
-        </header>
+        <Header />
         <SearchBar />
         <NavBar />
         <RoomList />
